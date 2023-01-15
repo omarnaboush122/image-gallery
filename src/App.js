@@ -18,7 +18,7 @@ const App = () => {
         setIsLoading(false);
       })
       .catch((err) => console.log(err));
-  }, []);
+  }, [searchTerm]);
 
   const allImages = images.map((image) => (
     <ImageCard key={image.id} image={image} />
@@ -26,7 +26,7 @@ const App = () => {
 
   return (
     <div className="container mx-auto">
-      <ImageSearch/>
+      <ImageSearch searchText = {(text) => setSearchTerm(text)}/>
       {isloading ? (
         <Loading />
       ) : (
