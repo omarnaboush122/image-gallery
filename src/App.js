@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import ImageCard from "./components/ImageCard";
+import ImageSearch from "./components/ImageSearch";
 import Loading from "./components/Loading";
 
 const App = () => {
@@ -25,6 +26,7 @@ const App = () => {
 
   return (
     <div className="container mx-auto">
+      <ImageSearch/>
       {isloading ? (
         <Loading />
       ) : (
