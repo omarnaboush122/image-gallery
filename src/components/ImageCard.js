@@ -3,8 +3,8 @@ import Tag from "./Tag";
 const ImageCard = ({ image }) => {
   const tags = image.tags.split(",");
   
-  const tagsElements = tags.map(tag => (
-    <Tag key={image.id} tag={tag}/>
+  const tagsElements = tags.map((tag,index) => (
+    <Tag key={index} tag={tag}/>
   ))
   return (
     <div className="max-w-sm rounded overflow-hidden shadow-lg">

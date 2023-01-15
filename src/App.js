@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import ImageCard from "./components/ImageCard";
+import Loading from "./components/Loading";
 
 const App = () => {
   const [images, setImages] = useState([]);
@@ -15,18 +16,20 @@ const App = () => {
         setImages(data.hits);
         setIsLoading(false);
       })
-      .catch(err => console.log(err))
+      .catch((err) => console.log(err));
   }, []);
 
-  const allImages = images.map(image => (
-    <ImageCard key={image.id} image={image}/>
-  ))
+  const allImages = images.map((image) => (
+    <ImageCard key={image.id} image={image} />
+  ));
 
   return (
     <div className="container mx-auto">
-      <div className="grid grid-cols-3 gap-4">
-        {allImages}
-      </div>
+      {isloading ? (
+        <Loading />
+      ) : (
+        <div className="grid grid-cols-3 gap-4">{allImages}</div>
+      )}
     </div>
   );
 };
