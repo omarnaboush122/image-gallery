@@ -1,8 +1,12 @@
-import React from 'react';
+import { useState } from "react";
+
 
 const App = () => {
+  const [images,setImages] = useState([]);
+  const [loading,setLoading] = useState(true);
+  const [searchTerm,setSearchTerm] = useState("");
   return (
-    <div className='max-w-sm rounded overflow-hidden shadow-lg'>
+    <div className="max-w-sm rounded overflow-hidden shadow-lg">
       <img src="https://source.unsplash.com/random" alt="" className="w-full" />
       <div className="px-6 py-4">
         <div className="font-bold text-purple-500 text-xl mb-2">
@@ -29,12 +33,13 @@ const App = () => {
         </span>
         <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2">
           #tag2
-        </span>  <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2">
+        </span>{" "}
+        <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2">
           #tag3
         </span>
       </div>
     </div>
   );
-}
+};
 
 export default App;
