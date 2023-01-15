@@ -3,7 +3,7 @@ import ImageCard from "./components/ImageCard";
 
 const App = () => {
   const [images, setImages] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const [isloading, setIsLoading] = useState(true);
   const [searchTerm, setSearchTerm] = useState("flowers");
 
   useEffect(() => {
@@ -13,7 +13,7 @@ const App = () => {
       .then((res) => res.json())
       .then((data) => {
         setImages(data.hits);
-        setLoading(false);
+        setIsLoading(false);
       })
       .catch(err => console.log(err))
   }, []);
