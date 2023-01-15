@@ -1,10 +1,22 @@
-import { useState } from "react";
-
+import { useEffect, useState } from "react";
 
 const App = () => {
-  const [images,setImages] = useState([]);
-  const [loading,setLoading] = useState(true);
-  const [searchTerm,setSearchTerm] = useState("");
+  const [images, setImages] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [searchTerm, setSearchTerm] = useState("flowers");
+
+  useEffect(() => {
+    fetch(
+      `https://pixabay.com/api/?key=32862587-207f7d81cbe3797731937a93d&q=${searchTerm}&image_type=photo&pretty=true`
+    )
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        setLoading(false);
+      })
+      .catch(err => console.log(err))
+  }, []);
+
   return (
     <div className="max-w-sm rounded overflow-hidden shadow-lg">
       <img src="https://source.unsplash.com/random" alt="" className="w-full" />
